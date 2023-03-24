@@ -24,6 +24,8 @@ const cardone = () => {
     const componentRef = useRef(null);
     const [pdfUrl, setPdfUrl] = useState(null);
 
+    const [cardColor, setCardColor] = useState(0);
+
     /*const handleDownload = () => {
       const element = componentRef.current;
       const options = {
@@ -59,10 +61,27 @@ const cardone = () => {
       });
     };*/
 
+    const changeCardColorOne = () => {
+      setCardColor(1);
+    }
+    const changeCardColorTwo = () => {
+      setCardColor(2);
+    }
+    const changeCardColorThree = () => {
+      setCardColor(3);
+    }
+    const changeCardColorFour = () => {
+      setCardColor(4);
+    }
+
   return (
     <>
       <div className={cardoneStyles.cardback} >
-          <div className={cardoneStyles.card} ref={componentRef}>
+          <div className={cardoneStyles.leftsidecolor}>
+              <Button className={cardoneStyles.leftsidecolorbutton} onClick={changeCardColorOne}></Button>
+              <Button className={cardoneStyles.leftsidecolorbutton} onClick={changeCardColorTwo}></Button>
+          </div>
+          <div className={`${cardoneStyles.card} ${cardColor==1 ? cardoneStyles.cardColorOne : cardColor==2 ? cardoneStyles.cardColorTwo : cardColor==3 ? cardoneStyles.cardColorThree : cardColor==4 ? cardoneStyles.cardColorFour : ''} `} ref={componentRef}>
               <div className={cardoneStyles.contacts}>
                   <HiLocationMarker className={cardoneStyles.contacticons}/>
                   <input type="text" value={address} onChange={(event) => {setAddress(event.target.value);}} className={cardoneStyles.address}></input><br/>
@@ -78,6 +97,10 @@ const cardone = () => {
                   <input type="text" value={job} onChange={(event) => {setJob(event.target.value);}} className={cardoneStyles.job}></input>
                   <div className={cardoneStyles.personalafterblock}></div>
               </div>
+          </div>
+          <div className={cardoneStyles.rightsidecolor}>
+              <Button className={cardoneStyles.rightsidecolorbutton} onClick={changeCardColorThree}></Button>
+              <Button className={cardoneStyles.rightsidecolorbutton} onClick={changeCardColorFour}></Button>
           </div>
           <div className={cardoneStyles.downloadbutton}>
               <Button onClick={handleDownload}>download</Button>

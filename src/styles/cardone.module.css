@@ -6,7 +6,52 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    padding-top: 10vh;
+    overflow: hidden;
 }
+.leftsidecolor{
+    height:3.5vh;
+    width:20vh;
+    margin-right:5vh;
+
+}
+.leftsidecolorbutton{
+    width:50%;
+    height:100%;
+    transition: linear 0.1s;
+}
+.leftsidecolorbutton:nth-child(1){
+    background: linear-gradient(90deg,red 50%,blue 50%);
+}
+.leftsidecolorbutton:nth-child(2){
+    background: linear-gradient(90deg,yellow 50%,cyan 50%);
+}
+.leftsidecolorbutton:hover{
+    transform: scale(1.1);
+}
+
+.rightsidecolor{
+    height:3.5vh;
+    width:20vh;
+    margin-left:5vh;
+}
+.rightsidecolorbutton{
+    width:50%;
+    height:100%;
+    transition: linear 0.1s;
+    /* border:1px solid black; */
+}
+.rightsidecolorbutton:nth-child(1){
+    background: linear-gradient(90deg, pink 50%,purple 50%);
+}
+.rightsidecolorbutton:nth-child(2){
+    background: linear-gradient(90deg,skyblue 50%,green  50%);
+}
+.rightsidecolorbutton:hover{
+    transform: scale(1.1);
+}
+
+
 .card{
     /* background: url("https://res.cloudinary.com/practicaldev/image/fetch/s--BuPz-p40--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nphrgz8yfnjylrwfr0yl.png"); */
     background: linear-gradient(-60deg, rgb(12,138,187) 50%, rgb(10,37,58) 50%);
@@ -16,15 +61,20 @@
     display:flex;
     border-radius: 1vmin;
     box-shadow: 5px 5px 5px rgba(20,20,20,0.4);
-    margin-top:20vh;
 }
-.card h2{
-    height:3vh;
-    font-size: 3vh;
-    font-weight: 550;
-    font-family: Arial, sans-serif;
-    z-index: 1;
+.cardColorOne{
+    background: linear-gradient(-60deg, red 50%, blue 50%);
 }
+.cardColorTwo{
+    background: linear-gradient(-60deg, yellow 50%, cyan 50%);
+}
+.cardColorThree{
+    background: linear-gradient(-60deg, pink 50%, purple 50%);
+}
+.cardColorFour{
+    background: linear-gradient(-60deg, skyblue 50%, green 50%);
+}
+
 .card input{
     outline: none;
     background-color: transparent;
@@ -117,8 +167,9 @@
     margin-left:46vw;
     transition: linear 0.2s;
     font-weight: 550;
+    box-shadow: 5px 5px 5px rgba(20,20,20,0.4);
 }
 .downloadbutton Button:hover{
-    box-shadow: 5px 5px 5px rgba(20,20,20,0.4);
+    
     transform: scale(1.1);
 }
