@@ -1,0 +1,29 @@
+import { useSession } from 'next-auth/client';
+import { useRouter } from 'next/router';
+
+function ProtectedPage() {
+
+    const [session, loading] = useSession();
+    const router = useRouter();
+  
+    if (loading) {
+      return( 
+        <div>
+            Loading...
+        </div>
+      );
+    }
+  
+    if (!session) {
+      router.push('/login');
+      return null;
+    }
+    
+  return (
+    <div>
+        <h1>>Welcome, {session.user.name}!</h1
+    </div>;
+  );
+}
+
+export default ProtectedPage;
