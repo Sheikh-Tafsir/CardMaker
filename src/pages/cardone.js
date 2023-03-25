@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useRef } from "react"
+import React, {useState, useEffect, useRef } from "react"
 import cardoneStyles from '../styles/cardone.module.css'
 
 import Button from 'react-bootstrap/Button';
@@ -14,9 +14,9 @@ import jsPDF from 'jspdf';
 // import html2pdf from 'html2pdf.js';
 
 const cardone = () => {
-    const [name, setName] = useState("sheikh tafsir");
-    const [job, setJob] = useState("student");
-    const [address, setAddress] = useState("tongi, gazipur");
+    const [name, setName] = useState("Sheikh Tafsir");
+    const [job, setJob] = useState("BSc Undergrade");
+    const [address, setAddress] = useState("Tongi, Gazipur");
     const [phoneno, setPhoneno] = useState("01817530115");
     const [eemail, setEemail] = useState("190041130tafsir@gmail");
     const [website, setWebsite] = useState("tmr.rahman.github.io");
@@ -45,7 +45,7 @@ const cardone = () => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF();
         pdf.addImage(imgData, 'PNG', 0, 0);
-        pdf.save('my-document.pdf');
+        pdf.save('my_business_card.pdf');
       });
     };
 
@@ -61,6 +61,9 @@ const cardone = () => {
       });
     };*/
 
+    const changeCardColorZero = () => {
+      setCardColor(0);
+    }
     const changeCardColorOne = () => {
       setCardColor(1);
     }
@@ -81,7 +84,7 @@ const cardone = () => {
               <Button className={cardoneStyles.leftsidecolorbutton} onClick={changeCardColorOne}></Button>
               <Button className={cardoneStyles.leftsidecolorbutton} onClick={changeCardColorTwo}></Button>
           </div>
-          <div className={`${cardoneStyles.card} ${cardColor==1 ? cardoneStyles.cardColorOne : cardColor==2 ? cardoneStyles.cardColorTwo : cardColor==3 ? cardoneStyles.cardColorThree : cardColor==4 ? cardoneStyles.cardColorFour : ''} `} ref={componentRef}>
+          <div className={`${cardoneStyles.card} ${cardColor==1 ? cardoneStyles.cardColorOne : cardColor==2 ? cardoneStyles.cardColorTwo : cardColor==3 ? cardoneStyles.cardColorThree : cardColor==4 ? cardoneStyles.cardColorFour : cardoneStyles.card} `} ref={componentRef}>
               <div className={cardoneStyles.contacts}>
                   <HiLocationMarker className={cardoneStyles.contacticons}/>
                   <input type="text" value={address} onChange={(event) => {setAddress(event.target.value);}} className={cardoneStyles.address}></input><br/>
@@ -103,7 +106,8 @@ const cardone = () => {
               <Button className={cardoneStyles.rightsidecolorbutton} onClick={changeCardColorFour}></Button>
           </div>
           <div className={cardoneStyles.downloadbutton}>
-              <Button onClick={handleDownload}>download</Button>
+              <Button onClick={changeCardColorZero}>Default</Button>
+              <Button onClick={handleDownload}>Download</Button>
           </div>
           
       </div>
